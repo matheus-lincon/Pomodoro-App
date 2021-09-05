@@ -1,0 +1,481 @@
+:root {
+
+    /* VARIABLES */
+
+    --tomato-container-color: #197163;
+    --tomato-background-color: #065446;
+    --tomato-short-break-container-color: #E1701A;
+    --tomato-short-break-background-color: #F7A440; 
+    --tomato-long-break-background-color: #CF1B1C;
+    --tomato-long-break-container-color: #900D0D;
+
+    --font-family: "IBM Plex Mono", sans-serif;
+    --font-size: 1.3rem;
+    --font-color: #f8f8f8;
+    --font-weight: bolder;
+
+    --pomodoro-header-icon-size: 2rem;
+    --pomodoro-timer-font-size: 7rem;
+    --pomodoro-buttons-font-size: 1.1rem;
+    --pomodoro-selected-button-color: #18181818;
+    --pomodoro-start-button-bg-color: #f8f8f8;
+    --pomodoro-start-button-font-size: 1.8rem;
+
+    --color-short-break-status: #f8f8f8;
+    --box-shadow-short-break-status: #d8d8d8;
+
+    --color-long-break-status: #f8f8f8;
+    --box-shadow-long-break-status: #d8d8d8;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--tomato-background-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+/* POMODORO STATUS ON */
+body.pomodoro-status {
+    transition: 1s;
+    background-color: var(--tomato-background-color);
+    color: var(--font-color);
+}
+
+/* SHORT BREAK STATUS ON  */
+body.short-break-status {
+    transition: 1s;
+    background-color: var(--tomato-short-break-background-color);
+    color: var(--color-short-break-status);
+}
+
+/* LONG BREAK STATUS ON */
+body.long-break-status {
+    transition: 1s;
+    background-color: var(--tomato-long-break-background-color);
+    color: var(--color-long-break-status);
+}
+
+/* POMODORO HEADER */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.8rem;
+
+    font-style: italic;
+}
+
+#header i {
+    font-size: var(--pomodoro-header-icon-size);
+}
+
+/* MAIN CONTAINER */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 7rem);
+}
+
+/* POMODORO CONTAINER  */
+#pomodoro-container {
+
+    background-color: var(--tomato-container-color);
+    width: 40rem;
+    height: 21rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.25rem;
+}
+
+/* container pomodoro status on */
+#pomodoro-container.pomodoro-status {
+    transition: 1s;
+    background-color: var(--tomato-container-color);
+}
+
+/* container short break status on */
+#pomodoro-container.short-break-status {
+    transition: 1s;
+    background-color: var(--tomato-short-break-container-color);
+    color: var(--color-short-break-status);
+}
+
+/* container long break status on */
+#pomodoro-container.long-break-status {
+    transition: 1s;
+    background-color: var(--tomato-long-break-container-color);
+}
+
+/* pomodoro timer */
+#pomodoro-container #timer {
+    font-size: var(--pomodoro-timer-font-size);
+    font-weight: var(--font-weight);
+    padding: 0;
+
+    margin-bottom: 0.6rem;
+}
+
+/* pomodoro buttons */
+#pomodoro-container #pomodoro-sections{
+    padding: 1rem;
+    margin-bottom: 1.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pomodoro-sections button {
+    background: none;
+    padding: 0.5rem;
+    border: none;
+    color: var(--font-color);
+    font-weight: var(--font-weight);
+    font-size: var(--pomodoro-buttons-font-size);
+    margin-right: 1rem;
+    
+    cursor: pointer;
+
+}
+
+/* skip button */
+#pomodoro-container #btn-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    position: relative;
+}
+
+#pomodoro-container #skip-button {
+    display: none;
+}
+
+#pomodoro-container #skip-button.active {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: -3rem;
+    font-size: 1.5rem;
+}
+
+#pomodoro-container #skip-button:hover {
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+/* start button */
+#pomodoro-container #start-button {
+    width: 200px;
+    height: 50px;
+    
+    border-radius: 0.25rem;
+    margin: 1rem 0 1.3rem 0;
+    
+    cursor: pointer;
+    border: none;
+
+    font-size:var(--pomodoro-start-button-font-size);
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 500;
+
+    color: var(--tomato-background-color);
+    background-color: var(--pomodoro-start-button-bg-color);
+    box-shadow: #d8d8d8 0px 6px 0px;
+}
+
+/* button pomodoro status on */
+#pomodoro-container #start-button .start-text.pomodoro-status {
+    transition: 1s;
+    color: var(--tomato-background-color);
+}
+
+/* button short break status on */
+#pomodoro-container #start-button .start-text.short-break-status {
+    transition: 1s;
+    color: var(--tomato-short-break-background-color);
+}
+
+#pomodoro-container #start-button.short-break-status {
+    background-color: var(--color-short-break-status);
+    box-shadow: var(--box-shadow-short-break-status) 0px 6px 0px;
+}
+
+/* button long break status on */
+#pomodoro-container #start-button .start-text.long-break-status {
+    transition: 1s;
+    color: var(--tomato-long-break-background-color);
+}
+
+#pomodoro-container #start-button.long-break-status {
+    background-color: var(--color-long-break-status);
+    box-shadow: var(--box-shadow-long-break-status) 0px 6px 0px;
+}
+
+/* start button actived */
+#pomodoro-container #start-button.active {
+    transform: translateY(6px);
+    box-shadow:none;
+}
+
+/* section buttons pomodoro status on */
+#pomodoro-container #pomodoro-sections button.pomodoro-status{
+    transition: 0.2s;
+    color: var(--font-color);
+}
+
+/* section buttons short break status on */
+#pomodoro-container #pomodoro-sections button.short-break-status {
+    transition: 0.2s;
+    color: var(--color-short-break-status);
+}
+
+/* section buttons long break staus on */
+#pomodoro-container #pomodoro-sections button.long-break-status {
+    transition: 0.2s;
+    color: var(--color-long-break-status);
+}
+
+
+/* POMODORO BUTTONS SELECTED */
+
+#pomodoro-sections button.selected {
+    transition: 0.5s;
+    background-color: var(--pomodoro-selected-button-color);
+    border-radius: 0.25rem;
+}
+
+/* POMODORO MSG BOX */
+#msg-container {
+    width: 40rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* PAGE FOOTER */
+#footer {
+    padding: 4rem 2rem;
+    opacity: 0.8;
+    font-weight: bolder;
+    text-align: center;
+    font-style: italic;
+}
+
+#footer img {
+    margin-top: 18px;
+}
+
+/* RECURSIVE MEDIA QUERIES */
+@media only screen and (min-width: 600px) and (max-width:600px) {
+    #header h1, #header h1 i{
+        font-size: 3rem;
+    }
+    
+
+    #pomodoro-container #pomodoro-sections {
+        gap: 2em;
+    }
+
+    #footer {
+        font-size: 2rem;
+    }
+    #footer img {
+        width: 50px;
+    }
+}   
+
+@media only screen and (max-width: 600px) {
+    /* HEADER */
+    #header {
+        font-size: 1rem;
+    }
+    
+    /* CONTAINER */
+    #container {
+        height: calc(100vh - 10rem);
+        overflow-x: hidden;
+    }
+
+    /* POMODORO CONTAINER */
+    #pomodoro-container {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    #pomodoro-container #pomodoro-sections button{
+        font-size: 1rem;
+        /* width: 100px; */
+    }
+
+    #pomodoro-container #timer {
+        font-size: 6rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    /* HEADER */
+    #header {
+        margin-bottom: 90px;
+    }
+
+    /* CONTAINER */
+    #container {
+        font-size: 1.2rem;
+        height: 100vh;
+    }
+
+     /* POMODORO CONTAINER */
+     #pomodoro-container {
+        font-size: 1rem;
+        width: 100%;
+    }
+    
+    #pomodoro-container #pomodoro-sections button{
+        font-size: 1rem;
+    }
+
+    #pomodoro-container #timer {
+        font-size: 5rem;
+    }
+
+    /* FOOTER */
+    #footer {
+        margin-top: 28px;
+        padding: 4rem 2rem;
+        font-size: 1rem;
+    }
+} 
+
+@media only screen and (min-width: 768px) {
+    /* HEADER */
+    #header {
+        margin-bottom: 200px;
+    }
+    #header h1{
+        font-size: 3.2rem;
+    }
+    #header h1 > i {
+        font-size: 3.2rem;
+    }
+    /* CONTAINER */
+    #container {
+        margin-top: -4rem;
+        font-size: 1.2rem;
+        height: calc(100vh);
+    }
+
+     /* POMODORO CONTAINER */
+     #pomodoro-container {
+        width: 100%;
+        font-size: 2rem;
+        height: 24rem;
+    }
+
+    #pomodoro-container #pomodoro-sections {
+        gap: 2rem;
+    }
+    
+    #pomodoro-container #pomodoro-sections button{
+        font-size: 1.1rem;
+    }
+
+    #pomodoro-container #timer {
+        font-size: 6rem;
+    }
+
+    /* button */
+    #btn-div #start-button {
+        width: 228px;
+        height: 60px;
+    }
+
+    /* FOOTER */
+    #footer {
+        margin-top: 58px;
+        font-size: 1rem;
+    }
+    #footer img {
+        width: 38px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #header h1, #header h1 i {
+        font-size: 3rem;
+    }
+
+    #container {
+        font-size: 1.4rem;
+        height: calc(100vh - 18rem);
+    }
+
+    #pomodoro-container {
+        width: 42rem;
+        height: 24rem;
+    }
+
+    #pomodoro-container #pomodoro-sections button{
+        font-size: 1.5rem;
+    }
+
+    #footer {
+        font-size: 1.2rem;
+    }
+    #footer img {
+        width: 38px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1200px) {
+    #header {
+        margin-bottom: 2rem;
+        padding: 2rem;
+    }
+
+    #header h1, #header h1 i {
+        font-size: 2rem;
+    }
+
+    #container {
+        /* background-color: red; */
+        margin: 1rem auto;
+        width: 50%;
+        font-size: 1.2rem;
+        height: calc(100vh - 18rem);
+    }
+
+    #pomodoro-container {
+
+        width: 100%;
+        height: 22rem;
+    }
+
+    #pomodoro-container #pomodoro-sections button{
+        font-size: 1.1rem;
+    }
+
+    #footer {
+        font-size: 1.2rem;
+    }
+    #footer img {
+        width: 38px;
+    }
+}

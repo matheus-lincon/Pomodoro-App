@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./src/assets/images/favicon.svg" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic" rel="stylesheet" />
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/61001c87b9.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro-App</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./src/assets/css/style.css">
+</head>
+<body class="body-status">
+    <!-- HEADER -->
+    <header id="header">
+        <h1>
+            <i class="fas fa-stopwatch"></i>
+            Pomodoro 
+            <i class="fas fa-stopwatch"></i>
+        </h1>
+
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main id="container">
+        <div id="pomodoro-container">
+            <!-- BUTTONS  -->
+            <div id="pomodoro-sections">
+                <button id="btn-pomodoro" class="section-button selected">Pomodoro</button>
+                <button id="btn-short-break" class="section-button">Short Break</button>
+                <button id="btn-long-break" class="section-button">Long Break</button>
+            </div>
+
+            <!-- TIMER DISPLAY -->
+            <div id="timer">25:00</div>
+
+            <!-- START BUTTON -->
+            <div id="btn-div">
+                <button id="start-button" class="btn-start"><span class="start-text">Start</span></button>
+                <i class="fas fa-forward" id="skip-button"></i>
+            </div>
+            
+        </div>
+
+        <!-- MSG BOX -->
+        <div id="msg-container">
+            <p id="msg-paragraph">Time to work!</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <p>Made with <span id="heart">&hearts;</span> by Matheus Lincon</p>
+        <a href="http://github.com/matheus-lincon" target="_blank"><img src="./src/assets/images/GitHub-Mark-32px.png" alt="GitHub"></a>
+    </footer>
+
+    
+
+
+    <!--javascript-->
+    <script src="./src/assets/js/app.js"></script>
+</body>
+</html>
