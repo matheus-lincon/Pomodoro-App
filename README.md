@@ -33,6 +33,8 @@ O objetivo desse projeto foi tanto <ins>reforçar alguns conhecimentos</ins> de 
 
 ## <ins>Project Demo</ins>
 
+Para experienciar o projeto de fato, você pode acessar essa URL: https://matheus-lincon.github.io/Pomodoro-App/
+
 ### Desktop
 
 <p align="center">
